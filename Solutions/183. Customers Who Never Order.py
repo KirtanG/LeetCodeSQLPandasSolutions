@@ -6,7 +6,6 @@ customers = pd.DataFrame(data, columns=['id', 'name']).astype({'id':'Int64', 'na
 data = [[1, 3], [2, 1]]
 orders = pd.DataFrame(data, columns=['id', 'customerId']).astype({'id':'Int64', 'customerId':'Int64'})
 
-
 def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
     df = pd.merge(customers,orders,left_on='id',right_on='customerId',how='left')
     df = df[df['customerId'].isna()].rename(columns={'name':'Customers'})
